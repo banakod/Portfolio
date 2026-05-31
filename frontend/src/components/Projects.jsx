@@ -7,21 +7,21 @@ const projects = [
     title: "Quiz App",
     type: "MERN Application",
     text: "Developed a MERN-based quiz platform with user/admin dashboards, category-wise quizzes, score tracking, leaderboard, and admin question management using REST APIs and MongoDB.",
-    accent: "from-[#ff8a65]/25 to-[#5eead4]/10",
+    gradient: "linear-gradient(135deg, rgba(99,102,241,0.30), rgba(56,189,248,0.15))",
     github: "https://github.com/banakod/ByteBrain",
   },
   {
     title: "Portfolio Website",
     type: "Animated Frontend",
     text: "Responsive animated portfolio with modern sections, contact integration, and polished motion.",
-    accent: "from-[#fbbf24]/25 to-[#ff8a65]/10",
+    gradient: "linear-gradient(135deg, rgba(167,139,250,0.28), rgba(99,102,241,0.15))",
     github: "https://github.com/banakod/Portfolio",
   },
   {
-    title: "FoodDeliverySystem.tns",
+    title: "FoodDeliverySystem",
     type: "Backend API",
-    text: "Backend API for managing food delivery requests and orders.",
-    accent: "from-[#5eead4]/20 to-[#ff8a65]/10",
+    text: "Backend API for managing food delivery requests and orders with Node.js, Express, and MongoDB.",
+    gradient: "linear-gradient(135deg, rgba(56,189,248,0.25), rgba(167,139,250,0.15))",
     github: "https://github.com/banakod/FoodDeliverySystem.tns",
   },
 ];
@@ -29,8 +29,7 @@ const projects = [
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i) => ({
-    opacity: 1,
-    y: 0,
+    opacity: 1, y: 0,
     transition: { delay: i * 0.15, duration: 0.6, type: "spring", stiffness: 80 },
   }),
 };
@@ -38,25 +37,16 @@ const cardVariants = {
 const Projects = () => (
   <section id="projects" className="py-24">
     <div className="section-shell">
-      <motion.p
-        className="kicker terminal-line mb-3"
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-      >
+      <motion.p className="kicker terminal-line mb-3"
+        initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
         Mission archive
       </motion.p>
-      <motion.h2
-        className="section-title mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-      >
+      <motion.h2 className="section-title mb-10"
+        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
         Projects
       </motion.h2>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
           <motion.article
             key={project.title}
@@ -66,23 +56,23 @@ const Projects = () => (
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             whileHover={{ y: -8, transition: { duration: 0.25 } }}
-            className="glass-panel hud-corners group overflow-hidden rounded-lg"
+            className="glass-panel hud-corners group overflow-hidden rounded-xl"
           >
-            {/* ── GRADIENT BANNER with shimmer ── */}
-            <div className={`h-28 bg-gradient-to-br ${project.accent} relative overflow-hidden`}>
-              {/* shimmer sweep */}
+            {/* gradient banner */}
+            <div className="h-28 relative overflow-hidden" style={{ background: project.gradient }}>
+              {/* shimmer */}
               <motion.div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%)",
+                  background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.14) 50%, transparent 60%)",
                   backgroundSize: "200% 100%",
                 }}
                 animate={{ backgroundPosition: ["-100% 0", "200% 0"] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "linear", repeatDelay: 2.5 }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "linear", repeatDelay: 2.5 }}
               />
-              {/* floating project type badge */}
+              {/* type badge */}
               <motion.div
-                className="absolute top-4 left-4 rounded-md border border-white/15 bg-[#060711]/55 px-3 py-1 text-xs font-bold text-[#fbbf24] backdrop-blur-sm"
+                className="project-badge absolute top-4 left-4 rounded-md px-3 py-1 text-xs font-bold"
                 initial={{ opacity: 0, y: -8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -93,18 +83,26 @@ const Projects = () => (
             </div>
 
             <div className="p-6">
-              <h3 className="mt-1 text-2xl font-black">{project.title}</h3>
-              <p className="mt-4 min-h-24 leading-7 text-[#d8e2e7]">{project.text}</p>
+              <h3 className="mt-1 text-2xl font-black" style={{ color: "var(--text-primary)" }}>
+                {project.title}
+              </h3>
+              <p className="mt-4 min-h-24 leading-7" style={{ color: "var(--text-secondary)" }}>
+                {project.text}
+              </p>
 
-              {/* ── GITHUB BUTTON ONLY ── */}
               <div className="mt-6">
                 <motion.a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.07, boxShadow: "0 0 14px rgba(255,138,101,0.35)" }}
+                  whileHover={{ scale: 1.06, boxShadow: "0 0 14px rgba(99,102,241,0.30)" }}
                   whileTap={{ scale: 0.94 }}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#ff8a65]/30 bg-[#ff8a65]/8 px-4 py-2 text-sm font-bold text-[#fff7ed] transition-all hover:border-[#ff8a65]/65 hover:bg-[#ff8a65]/18"
+                  className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold transition-all"
+                  style={{
+                    color: "var(--accent-primary)",
+                    border: "1px solid var(--glass-border)",
+                    background: "rgba(99,102,241,0.08)",
+                  }}
                 >
                   <FaGithub /> GitHub
                 </motion.a>

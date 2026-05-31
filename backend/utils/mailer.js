@@ -8,6 +8,13 @@ const requiredEmailConfig = [
   "EMAIL_TO"
 ];
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PLACEHOLDER_EMAILS = new Set([
+  "your_email@gmail.com",
+  "you@example.com",
+  "example@gmail.com"
+]);
+
 const escapeHtml = (value) => {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -15,6 +22,22 @@ const escapeHtml = (value) => {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+};
+
+const getEmailAddress = (key, { required = true } = {}) => {
+  const value = process.env[key]?.trim();
+
+  if (!value) {
+    if (!required) {
+      return "";
+    }
+    throw new Error(`${key} is missing in backend/.env.`);
+  }
+  if (!EMAIL_RE.test(value) || PLACEHOLDER_EMAILS.has(value.toLowerCase())) {
+    throw new Error(`${key} must be a real email address in backend/.env.`);
+  }
+
+  return value;
 };
 
 const getTransporter = () => {
@@ -37,11 +60,12 @@ const getTransporter = () => {
 
 const sendContactEmail = async ({ name, email, message }) => {
   const transporter = getTransporter();
-  const fromAddress = process.env.EMAIL_FROM || process.env.EMAIL_USER;
+  const fromAddress = getEmailAddress("EMAIL_FROM", { required: false }) || getEmailAddress("EMAIL_USER");
+  const toAddress = getEmailAddress("EMAIL_TO");
 
   return transporter.sendMail({
     from: `"Portfolio Contact" <${fromAddress}>`,
-    to: process.env.EMAIL_TO,
+    to: toAddress,
     replyTo: email,
     subject: `New portfolio message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,

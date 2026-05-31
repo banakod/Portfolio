@@ -1,10 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+
+    <!-- Primary SEO -->
+    <title>Vinayak Banakod | MERN Stack Developer & Cyber Security</title>
+    <meta name="description" content="Vinayak Banakod - MERN Stack Developer specialising in React, Node.js, Express, MongoDB, animated UIs, and security-aware web applications. Available for projects." />
+    <meta name="keywords" content="Vinayak Banakod, MERN Stack Developer, React Developer, Node.js, MongoDB, Portfolio, Cyber Security, Web Developer India, Animated Portfolio" />
+    <meta name="author" content="Vinayak Banakod" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vinayak.space/" />
+
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://vinayak.space/" />
+    <meta property="og:title"       content="Vinayak Banakod | MERN Stack Developer" />
+    <meta property="og:description" content="Building galaxy-grade digital experiences with React, Node.js, and animated interfaces." />
+    <meta property="og:image"       content="https://vinayak.space/og-image.png" />
+    <meta property="og:site_name"   content="Vinayak.space" />
+    <meta property="og:locale"      content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:url"         content="https://vinayak.space/" />
+    <meta name="twitter:title"       content="Vinayak Banakod | MERN Stack Developer" />
+    <meta name="twitter:description" content="Building galaxy-grade digital experiences with React, Node.js, and animated interfaces." />
+    <meta name="twitter:image"       content="https://vinayak.space/og-image.png" />
+
+    <!-- Theme color (browser chrome) -->
+    <meta name="theme-color" content="#060711" />
+
+    <!-- Prevent dark/light flash -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var theme = saved || (prefersDark ? "dark" : "light");
+          document.documentElement.classList.remove("dark", "light");
+          document.documentElement.classList.add(theme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
