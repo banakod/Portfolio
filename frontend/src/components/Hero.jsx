@@ -59,7 +59,7 @@ const Hero = () => (
         >
           <motion.a
             href="#projects"
-            whileHover={{ scale: 1.06, boxShadow: "0 0 22px rgba(99,102,241,0.45)" }}
+            whileHover={{ scale: 1.06, boxShadow: "0 0 18px rgba(37,99,235,0.28)" }}
             whileTap={{ scale: 0.96 }}
             className="btn-primary inline-flex items-center gap-3 rounded-lg px-6 py-3 font-black"
           >
@@ -101,10 +101,10 @@ const Hero = () => (
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              whileHover={{ scale: 1.18, rotate: 6, boxShadow: "0 0 16px rgba(255,138,101,0.35)" }}
+              whileHover={{ scale: 1.18, rotate: 6, boxShadow: "0 0 14px rgba(37,99,235,0.28)" }}
               whileTap={{ scale: 0.92 }}
               className="grid h-11 w-11 place-items-center rounded-lg border transition-colors"
-              style={{ borderColor: "var(--glass-border)", background: "rgba(99,102,241,0.06)", color: "var(--text-secondary)" }}
+              style={{ borderColor: "var(--glass-border)", background: "var(--icon-bg)", color: "var(--text-secondary)" }}
             >
               {icon}
             </motion.a>
@@ -128,7 +128,7 @@ const Hero = () => (
         {/* glow ring */}
         <motion.div
           className="pointer-events-none absolute inset-0 rounded-lg"
-          animate={{ boxShadow: ["0 0 0px rgba(255,138,101,0)", "0 0 40px rgba(255,138,101,0.28)", "0 0 0px rgba(255,138,101,0)"] }}
+          animate={{ boxShadow: ["0 0 0px rgba(37,99,235,0)", "0 0 30px rgba(37,99,235,0.22)", "0 0 0px rgba(37,99,235,0)"] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
 

@@ -46,7 +46,7 @@ const About = () => (
             >
               <motion.div
                 className="mb-4 grid h-11 w-11 place-items-center rounded-lg"
-                style={{ background: "rgba(99,102,241,0.10)", color: "var(--accent-primary)" }}
+                style={{ background: "var(--icon-bg)", color: "var(--accent-primary)" }}
                 whileHover={{ rotate: 15, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >

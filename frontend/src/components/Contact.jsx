@@ -127,10 +127,10 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  whileHover={{ scale: 1.18, rotate: 6, boxShadow: "0 0 14px rgba(255,138,101,0.35)" }}
+                  whileHover={{ scale: 1.18, rotate: 6, boxShadow: "0 0 12px rgba(37,99,235,0.25)" }}
                   whileTap={{ scale: 0.92 }}
                   className="grid h-11 w-11 place-items-center rounded-lg transition-colors"
-                  style={{ border: "1px solid var(--glass-border)", background: "rgba(99,102,241,0.06)", color: "var(--text-secondary)" }}
+                  style={{ border: "1px solid var(--glass-border)", background: "var(--icon-bg)", color: "var(--text-secondary)" }}
                 >
                   {icon}
                 </motion.a>
@@ -208,7 +208,7 @@ const Contact = () => {
           <motion.button
             type="submit"
             disabled={isSending}
-            whileHover={!isSending ? { scale: 1.03, boxShadow: "0 0 22px rgba(255,138,101,0.45)" } : {}}
+            whileHover={!isSending ? { scale: 1.03, boxShadow: "0 0 18px rgba(37,99,235,0.28)" } : {}}
             whileTap={!isSending ? { scale: 0.97 } : {}}
           className="inline-flex items-center justify-center gap-3 rounded-lg px-6 py-4 font-black text-white transition-all disabled:cursor-not-allowed disabled:opacity-60"
             style={{ background: isSending ? "var(--accent-primary)" : "var(--btn-primary-bg)" }}

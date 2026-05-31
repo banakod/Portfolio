@@ -35,7 +35,7 @@ function App() {
         <div className="section-shell flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
 
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ border: "1px solid var(--glass-border)", background: "rgba(99,102,241,0.10)", color: "var(--accent-primary)" }}>
+            <span className="grid h-8 w-8 place-items-center rounded-lg" style={{ border: "1px solid var(--glass-border)", background: "var(--icon-bg)", color: "var(--accent-primary)" }}>
               <FaRocket size={13} />
             </span>
             <div>
@@ -56,10 +56,10 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                whileHover={{ scale: 1.15, rotate: 5, boxShadow: "0 0 12px rgba(255,138,101,0.3)" }}
+                whileHover={{ scale: 1.15, rotate: 5, boxShadow: "0 0 10px rgba(37,99,235,0.22)" }}
                 whileTap={{ scale: 0.92 }}
                 className="grid h-9 w-9 place-items-center rounded-lg transition-colors"
-                style={{ border: "1px solid var(--glass-border)", background: "rgba(99,102,241,0.06)", color: "var(--text-muted)" }}
+                style={{ border: "1px solid var(--glass-border)", background: "var(--icon-bg)", color: "var(--text-muted)" }}
               >
                 {icon}
               </motion.a>

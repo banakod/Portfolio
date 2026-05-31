@@ -32,7 +32,10 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URL = process.env.MONGO_URL;
+const LOCAL_MONGO_URL = "mongodb://127.0.0.1:27017/portfolio";
+const MONGO_URL = process.env.NODE_ENV === "production"
+  ? process.env.MONGO_URL
+  : process.env.LOCAL_MONGO_URL || LOCAL_MONGO_URL;
 
 const connectMongo = async () => {
   await mongoose.connect(MONGO_URL, {

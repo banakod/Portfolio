@@ -31,7 +31,7 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, type: "spring", stiffness: 90 }}
       className={`fixed top-0 w-full z-50 border-b backdrop-blur-xl transition-all duration-300 ${
-        scrolled ? "nav-bg-scrolled shadow-[0_4px_24px_rgba(99,102,241,0.10)]" : "nav-bg"
+        scrolled ? "nav-bg-scrolled shadow-[0_2px_16px_rgba(15,23,42,0.08)]" : "nav-bg"
       }`}
       style={{ borderBottomColor: "var(--glass-border)" }}
     >
@@ -47,7 +47,7 @@ const Navbar = () => {
         >
           <motion.span
             className="grid h-10 w-10 place-items-center rounded-lg"
-            style={{ border: "1px solid var(--glass-border)", background: "rgba(99,102,241,0.10)", color: "var(--accent-primary)" }}
+            style={{ border: "1px solid var(--glass-border)", background: "var(--icon-bg)", color: "var(--accent-primary)" }}
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -76,7 +76,7 @@ const Navbar = () => {
                   <motion.span
                     layoutId="nav-pill"
                     className="absolute inset-0 rounded-lg nav-active-glow"
-                    style={{ background: "rgba(99,102,241,0.10)", border: "1px solid rgba(99,102,241,0.22)" }}
+                    style={{ background: "var(--icon-bg)", border: "1px solid var(--glass-border)" }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -131,7 +131,7 @@ const Navbar = () => {
 
           <motion.button
             className="grid h-10 w-10 place-items-center rounded-lg"
-            style={{ border: "1px solid var(--glass-border)", background: "rgba(99,102,241,0.08)", color: "var(--accent-primary)" }}
+            style={{ border: "1px solid var(--glass-border)", background: "var(--icon-bg)", color: "var(--accent-primary)" }}
             onClick={() => setMenuOpen((v) => !v)}
             whileTap={{ scale: 0.92 }}
             aria-label="Toggle menu"
@@ -176,8 +176,8 @@ const Navbar = () => {
                     className="block rounded-lg px-4 py-3 text-sm font-semibold capitalize transition-all"
                     style={{
                       color:      active === link ? "var(--accent-primary)" : "var(--text-secondary)",
-                      background: active === link ? "rgba(99,102,241,0.10)" : "transparent",
-                      border:     active === link ? "1px solid rgba(99,102,241,0.22)" : "1px solid transparent",
+                      background: active === link ? "var(--icon-bg)" : "transparent",
+                      border: active === link ? "1px solid var(--glass-border)" : "1px solid transparent",
                     }}
                   >
                     {link}
