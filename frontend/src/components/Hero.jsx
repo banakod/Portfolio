@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaArrowDown, FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
-import heroImage from "../assets/hero.png";
+import { FaArrowDown, FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
+import heroImage from "../assets/hero.jpeg";
 
 const socials = [
   { href: "https://github.com/banakod",                  icon: <FaGithub size={18} />,   label: "GitHub"   },
@@ -24,7 +24,7 @@ const Hero = () => (
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          MERN developer mission control
+          MERN Stack Developer | Cyber Security Enthusiast
         </motion.p>
 
         <motion.h1
@@ -34,8 +34,8 @@ const Hero = () => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.7 }}
         >
-          Building digital worlds with a{" "}
-          <span className="neon-text">galaxy-grade</span> interface.
+          Building secure, responsive{" "}
+          <span className="neon-text">MERN stack</span> web applications.
         </motion.h1>
 
         <motion.p
@@ -45,9 +45,9 @@ const Hero = () => (
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          Hi, I am Vinayak Banakod. I craft responsive MERN stack apps,
-          animated portfolio experiences, and security-aware web interfaces
-          that feel fast, sharp, and memorable.
+          Hi, I am Vinayak Banakod. I build React, Node.js, Express, and
+          MongoDB projects with clean interfaces, practical validation, and a
+          security-aware development mindset.
         </motion.p>
 
         {/* CTA BUTTONS */}
@@ -68,12 +68,13 @@ const Hero = () => (
 
           <motion.a
             href="/resume.pdf"
-            download="Vinayak_Banakod_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.96 }}
             className="btn-resume inline-flex items-center gap-3 rounded-lg px-6 py-3 font-black"
           >
-            Download CV <FaDownload />
+            View Resume <FaExternalLinkAlt />
           </motion.a>
 
           <motion.a
@@ -142,7 +143,7 @@ const Hero = () => (
               transition={{ duration: 1.4, repeat: Infinity }}
             />
             <p className="text-xl font-black" style={{ color: "var(--text-primary)" }}>
-              Available for projects
+              Open to internships and projects
             </p>
           </div>
         </div>

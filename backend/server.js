@@ -34,13 +34,20 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL;
 
+const connectMongo = async () => {
+  await mongoose.connect(MONGO_URL, {
+    serverSelectionTimeoutMS: 8000
+  });
+  console.log("MongoDB connected");
+};
+
 const startServer = async () => {
   if (MONGO_URL && MONGO_URL !== "your_mongodb_connection_string") {
     try {
-      await mongoose.connect(MONGO_URL);
-      console.log("MongoDB connected");
+      await connectMongo();
     } catch (error) {
-      console.error("MongoDB connection failed:", error.message);
+      console.warn("MongoDB not connected:", error.message);
+      console.warn("Permanent fix: add this app's IP address in MongoDB Atlas Network Access, or allow 0.0.0.0/0 for dynamic deployment hosts.");
     }
   } else {
     console.warn("MongoDB connection skipped. Set MONGO_URL in .env to save contacts.");
