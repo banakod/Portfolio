@@ -38,7 +38,7 @@ const Skills = () => (
             <div className="flex items-center justify-between gap-3">
               <h3 className="font-black" style={{ color: "var(--text-primary)" }}>{skill.name}</h3>
               <motion.span
-                className="text-sm font-bold text-[#5eead4]"
+                className="text-sm font-bold" style={{ color: "var(--accent-primary)" }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}

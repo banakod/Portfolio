@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
@@ -18,11 +18,12 @@ const projects = [
     github: "https://github.com/banakod/Portfolio",
   },
   {
-    title: "FoodDeliverySystem",
-    type: "Backend API",
-    text: "Backend API for managing food delivery requests and orders with Node.js, Express, and MongoDB.",
-    gradient: "linear-gradient(135deg, rgba(96,165,250,0.20), rgba(37,99,235,0.12))",
-    github: "https://github.com/banakod/FoodDeliverySystem.tns",
+    title: "BizBridge AI",
+    type: "MERN + Groq AI",
+    text: "Full-stack business networking platform powered by Groq-AI. Features lead management, connection requests, business profiles, dashboard analytics, notifications, and JWT authentication.",
+    gradient: "linear-gradient(135deg, rgba(96,165,250,0.20), rgba(167,139,250,0.15))",
+    github: "https://github.com/banakod/BizBridge-AI",
+    live: "https://biz-bridge-ai.vercel.app/",
   },
 ];
 
@@ -90,7 +91,7 @@ const Projects = () => (
                 {project.text}
               </p>
 
-              <div className="mt-6">
+              <div className="mt-6 flex gap-3">
                 <motion.a
                   href={project.github}
                   target="_blank"
@@ -98,14 +99,23 @@ const Projects = () => (
                   whileHover={{ scale: 1.06, boxShadow: "0 0 12px rgba(37,99,235,0.22)" }}
                   whileTap={{ scale: 0.94 }}
                   className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold transition-all"
-                  style={{
-                    color: "var(--accent-primary)",
-                    border: "1px solid var(--glass-border)",
-                    background: "var(--icon-bg)",
-                  }}
+                  style={{ color: "var(--accent-primary)", border: "1px solid var(--glass-border)", background: "var(--icon-bg)" }}
                 >
                   <FaGithub /> GitHub
                 </motion.a>
+                {project.live && (
+                  <motion.a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.06, boxShadow: "0 0 12px rgba(37,99,235,0.22)" }}
+                    whileTap={{ scale: 0.94 }}
+                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-bold transition-all"
+                    style={{ color: "var(--accent-primary)", border: "1px solid var(--glass-border)", background: "var(--icon-bg)" }}
+                  >
+                    <FaExternalLinkAlt /> Live
+                  </motion.a>
+                )}
               </div>
             </div>
           </motion.article>
