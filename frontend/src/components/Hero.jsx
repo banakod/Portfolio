@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaArrowDown, FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
+import { FaArrowDown, FaGithub, FaLinkedin } from "react-icons/fa";
 import heroImage from "../assets/hero.jpeg";
 
 const socials = [
@@ -68,13 +68,12 @@ const Hero = () => (
 
           <motion.a
             href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            download="Vinayak_Banakod_Resume.pdf"
             whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.96 }}
             className="btn-resume inline-flex items-center gap-3 rounded-lg px-6 py-3 font-black"
           >
-            View Resume <FaExternalLinkAlt />
+            Download Resume <FaArrowDown />
           </motion.a>
 
           <motion.a
